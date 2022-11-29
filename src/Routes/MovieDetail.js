@@ -116,20 +116,34 @@ export const MovieDetail = () => {
             <div>
                 <div><a href={movie.youtube_trailer_url} target="_blank"><img src={movie.poster_url} alt={movie.title} width="300px" height="400px"/></a></div>
                 <div>
-                    <h1>제목 : {movie.title}</h1>
-                    <div>줄거리 : {movie.summary.slice(0, 230)}...</div>
-                    <ul> 장르 :
-                        {movie.genres.map((genre, i) => <li key={i}>{genre}</li>)}
-                    </ul>
+                    <div>
+                        <span>제목</span>
+                        <div>{movie.title}</div>
+                    </div>
+                    <div>
+                        <span>줄거리</span>
+                        <div>{movie.summary.slice(0, 230)}...</div>
+                    </div>
+                    <div>
+                        <span>장르</span>
+                        <ul>
+                            {movie.genres.map((genre, i) => <li key={i}>{genre}</li>)}
+                        </ul>
+                    </div>
                     <div>감독 : {movie.director}</div>
-                    <ul>출연배우 : 
-                        {movie.actors.map((actor, i)=><li key={i}>{actor}</li>)}
-                    </ul>
+                    <div>
+                        <span>출연배우</span>
+                        <ul>
+                            {movie.actors.map((actor, i)=><li key={i}>{actor}</li>)}
+                        </ul>
+                    </div>
                     <div>평점 : {movie.rating}</div>
                     <div>상영시간 : {movie.runtime}</div>
                     <div>국가 : {movie.country}</div>
-                    <div onClick={handleWishListToggle}><FontAwesomeIcon icon={isWished ? faHeartCircleCheck : faHeartCirclePlus} color={"red"} /></div>
-                    <div onClick={handleCartListToggle}><FontAwesomeIcon icon={isAddedToCart ? faCartShopping : faCartPlus} color={"green"} /></div>
+                    <div>
+                        <div onClick={handleWishListToggle}><FontAwesomeIcon icon={isWished ? faHeartCircleCheck : faHeartCirclePlus} color={"red"} /></div>
+                        <div onClick={handleCartListToggle}><FontAwesomeIcon icon={isAddedToCart ? faCartShopping : faCartPlus} color={"green"} /></div>
+                    </div>
                 </div>
                 <Movies movies={similarMovies} />
             </div>

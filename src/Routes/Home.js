@@ -15,12 +15,16 @@ export const Home = () => {
     const [dramas, setDramas] = useState([]);
     const [horrors, setHorros] = useState([]);
     const [actions, setActions] = useState([]);
+    const [SFs, setSFs] = useState([]);
     const [rating, setRating] = useState([]);
     const navigate = useNavigate();
     let filtered_dramas;
+    let filtered_SFs;
     let filtered_horrors;
     let filtered_actions;
     let filtered_rating;
+    const genreRandom = 4;
+    const topRatingCount = 4;
     
     //영화 필터링
     useEffect(()=>{
@@ -35,12 +39,14 @@ export const Home = () => {
     const FilteringMovies = () => {
         //1. MovieData의 영화들을 장르에 맞춰 나눈다.
         filtered_dramas = genreFilter("드라마");
+        filtered_SFs = genreFilter("SF");
         filtered_horrors = genreFilter("공포");
         filtered_actions = genreFilter("액션");
         filtered_rating = ratingFilter();
 
         //2. 로딩 끝. 재 렌더링
         setDramas(filtered_dramas);
+        setSFs(filtered_SFs);
         setHorros(filtered_horrors);
         setActions(filtered_actions);
         setRating(filtered_rating);
@@ -57,12 +63,30 @@ export const Home = () => {
     }
 
     const genreFilter = (genre) => {
-        const result = MovieData.filter(movie => movie.genres.includes(genre));
+        const value = MovieData.filter(movie => movie.genres.includes(genre));
+        const result = [];
+        let saveRans = [];
+        for(let i=0; i<genreRandom; i++)
+        {
+            let ran = Math.floor(Math.random() * value.length);
+            while(saveRans.includes(ran))
+            {
+                ran = Math.floor(Math.random() * value.length);
+            }
+            saveRans.push(ran);
+            result.push(value[ran]);
+             
+        }
         return result;
     }
 
     const ratingFilter = () => {
-        const result = MovieData.sort((a, b) => b.rating - a.rating);
+        const value = MovieData.sort((a, b) => b.rating - a.rating);
+        const result = [];
+        for(let i=0; i<topRatingCount; i++)
+        {
+            result.push(value[i]);
+        }
         return result; 
     }
     
@@ -83,14 +107,18 @@ export const Home = () => {
         return (
             <HeaderTemplate>
                 <div>
-                    <h1>----------Dramas----------</h1>
-                   <Movies movies={dramas}/>
-                    <h1>----------horrors----------</h1>
-                   <Movies movies={horrors}/>
-                    <h1>----------actions----------</h1>
-                   <Movies movies={actions}/>
-                    <h1>----------rating----------</h1>
-                   <Movies movies={rating}/>
+                    <div></div>
+                    <div>
+                        <Movies movies={dramas}/>
+                         <h1>----------SF----------</h1>
+                        <Movies movies={SFs}/>
+                         <h1>----------horrors----------</h1>
+                        <Movies movies={horrors}/>
+                         <h1>----------actions----------</h1>
+                        <Movies movies={actions}/>
+                         <h1>----------rating----------</h1>
+                        <Movies movies={rating}/>
+                    </div>
                 </div>
             </HeaderTemplate>
         )

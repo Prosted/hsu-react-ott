@@ -25,17 +25,17 @@ export const CartList = () => {
     }, [])
 
 
-    if(movies.length == 0) return <HeaderTemplate><div>Nothing...</div></HeaderTemplate>;
+    if(movies.length == 0) return <HeaderTemplate><div>Nothing in here</div></HeaderTemplate>;
     if(movies)
     {
         return (
             <HeaderTemplate>
                 <div>
-                    <h1>CartList!</h1>
+                    <h1>My CartList</h1>
                     <div>
                         {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
                     </div>
-                    <Link to={"/pay"}><div>결제하기</div></Link>
+                    <div><Link to={"/pay"}>결제하기</Link></div>
                 </div>
             </HeaderTemplate>
         )

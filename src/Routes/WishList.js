@@ -23,13 +23,13 @@ export const WishList = () => {
         getWishMovies();
     }, []);
 
-    if(movies.length == 0) return <HeaderTemplate><div>Nothing...</div></HeaderTemplate>;
+    if(movies.length == 0) return <HeaderTemplate><div>Nothing in here</div></HeaderTemplate>;
     if(movies)
     {
         return (
             <HeaderTemplate>
                 <div>
-                    <h1>WishList!</h1>
+                    <h1>My WishList</h1>
                     <div>
                         {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
                     </div>

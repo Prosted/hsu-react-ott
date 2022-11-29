@@ -58,8 +58,10 @@ export const Login = () => {
     return(
         <div>
             <SimpleForm handleId={handleId} handlePassword={handlePassword} handleSubmit={handleSubmit} id={id} password={password} buttonText={buttonText} errorPopup={errorPopup} errorMessage={errorMessage} />
-            <h3>No Accout? It's fine. just join us</h3>
-            <Link to={"/join"}><div>Create Account</div></Link>
+            <div>
+                <h3>First time visiting?</h3>
+                <div><Link to={"/join"}>Create Account</Link></div>
+            </div>
         </div>
     )
 }

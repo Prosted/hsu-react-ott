@@ -24,13 +24,13 @@ export const MyMovies = () => {
         getPurchaseMovies();
     }, [])
 
-    if(movies.length == 0) return <HeaderTemplate><div>Nothing...</div></HeaderTemplate>;
+    if(movies.length == 0) return <HeaderTemplate><div>Nothing in here</div></HeaderTemplate>;
     if(movies)
     {
         return (
             <HeaderTemplate>
                 <div>
-                    <h1>My Movie List!</h1>
+                    <h1>My Movie List</h1>
                     <div>
                         {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
                     </div>

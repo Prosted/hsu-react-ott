@@ -66,8 +66,7 @@ export const Pay = () => {
         return(
             <HeaderTemplate>
                 <div>
-                    <button onClick={()=>navigate("/")}>go to home</button>
-                    <h1>This is pay page!</h1>
+                    <h1>Check your Pay List</h1>
                     <div>
                         {movies.map(movie => 
                             <div key={movie.id}>
@@ -78,13 +77,9 @@ export const Pay = () => {
                         )}
                     </div>
                     <div>
-                        { 
-                            <>
-                                <div>총 개수 : {movies.length}</div>
-                                <div>총 결제 금액 : {totalPrice}원</div>
-                                <div onClick={handlePay}>결제하기</div>
-                            </>
-                        }
+                        <div>총 개수 : {movies.length}</div>
+                        <div>총 결제 금액 : {totalPrice}원</div>
+                        <div onClick={handlePay}>결제하기</div>
                     </div>
                 </div>
             </HeaderTemplate>

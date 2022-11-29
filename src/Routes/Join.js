@@ -58,8 +58,10 @@ export const Join = () => {
     return(
         <div>
             <SimpleForm handleId={handleId} handlePassword={handlePassword} handleSubmit={handleSubmit} id={id} password={password} buttonText={buttonText} errorPopup={errorPopup} errorMessage={errorMessage} />
-            <h3>Already have account? Go to login</h3>
-            <Link to={"/login"}><div>Go to login</div></Link>
+            <div>
+                <h3>Already have your Account?</h3>
+                <div><Link to={"/login"}>Go to login</Link></div>
+            </div>
         </div>
     )
 }

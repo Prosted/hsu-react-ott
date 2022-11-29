@@ -10,22 +10,35 @@ export const getMovie = (findId) => {
 }
 
 export const getSimilarGenresMovies = (genres, currentMovieId) => {
-    const max = 4;
-    let count = 0;
-
     const [genre1, genre2, genre3] = genres;
-    let result = [];
+    let similarMovies = [];
+    
+    //1. 장르가 똑같은 다른 영화들을 불러옴
     for(let i=0; i<MovieData.length; i++)
     {
         const movie = MovieData[i];
-        if(movie.id != currentMovieId && count < max)
+        if(movie.id != currentMovieId)
         {
             if(movie.genres.includes(genre1) || movie.genres.includes(genre2) || movie.genres.includes(genre3))
             {
-                result.push(movie);
-                count++;
+                similarMovies.push(movie);
             }
         }
+    }
+    
+    const max = 4;
+    let result = [];
+    let saveRans = [];
+    //2. similarMovies에서 최대 개수만큼 랜덤으로 영화를 불러옴
+    for(let i=0; i<max; i++)
+    {
+        let ran = Math.floor(Math.random() * similarMovies.length);
+        while(saveRans.includes(ran))
+        {
+            ran = Math.floor(Math.random() * similarMovies.length);
+        }
+        saveRans.push(ran);
+        result.push(similarMovies[ran]);
     }
     return result;
 }
