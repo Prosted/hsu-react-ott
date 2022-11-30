@@ -14,6 +14,9 @@ import { faHeartCircleCheck, faHeartCirclePlus, faCartPlus, faCartShopping } fro
 import { Movies } from "../Components/Movies";
 import { HeaderTemplate } from "../Components/Template";
 
+//styles
+import styles from "../styles/MovieDetail.module.css";
+
 export const MovieDetail = () => {
     const [isWished, setIsWished] = useState(false);
     const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -113,39 +116,49 @@ export const MovieDetail = () => {
     if(movie)
     return(
         <HeaderTemplate>
-            <div>
-                <div><a href={movie.youtube_trailer_url} target="_blank"><img src={movie.poster_url} alt={movie.title} width="300px" height="400px"/></a></div>
-                <div>
+            <div className={styles.detail_page}>
+                <div className={styles.detail_info}>
                     <div>
-                        <span>제목</span>
-                        <div>{movie.title}</div>
+                        <h1>{movie.title}</h1>
                     </div>
+                    <div><b>가격:</b> {movie.price}원</div>
                     <div>
-                        <span>줄거리</span>
-                        <div>{movie.summary.slice(0, 230)}...</div>
-                    </div>
-                    <div>
-                        <span>장르</span>
+                        <span><b>장르</b></span>
                         <ul>
                             {movie.genres.map((genre, i) => <li key={i}>{genre}</li>)}
                         </ul>
                     </div>
-                    <div>감독 : {movie.director}</div>
+                    <div><b>감독 :</b> {movie.director}</div>
                     <div>
-                        <span>출연배우</span>
+                        <span><b>출연배우</b></span>
                         <ul>
                             {movie.actors.map((actor, i)=><li key={i}>{actor}</li>)}
                         </ul>
                     </div>
-                    <div>평점 : {movie.rating}</div>
-                    <div>상영시간 : {movie.runtime}</div>
-                    <div>국가 : {movie.country}</div>
+                    <div><b>평점 :</b> {movie.rating}</div>
+                    <div><b>등급 :</b> {movie.flim_rating}</div>
+                    <div><b>배급사 :</b> {movie.distributor}</div>
+                    <div><b>개봉날짜 :</b> {movie.release_date}</div>
+                    <div><b>상영시간 :</b> {movie.runtime}분</div>
+                    <div><b>국가 :</b> {movie.country}</div>
                     <div>
-                        <div onClick={handleWishListToggle}><FontAwesomeIcon icon={isWished ? faHeartCircleCheck : faHeartCirclePlus} color={"red"} /></div>
-                        <div onClick={handleCartListToggle}><FontAwesomeIcon icon={isAddedToCart ? faCartShopping : faCartPlus} color={"green"} /></div>
+                    <div style={{float:"left"}} className={styles.icon} onClick={handleWishListToggle}><FontAwesomeIcon icon={isWished ? faHeartCircleCheck : faHeartCirclePlus} color={"red"} /></div>
+                    <div style={{float:"left"}} className={styles.icon} onClick={handleCartListToggle}><FontAwesomeIcon icon={isAddedToCart ? faCartShopping : faCartPlus} color={"green"} /></div>
                     </div>
                 </div>
-                <Movies movies={similarMovies} />
+                <div className={styles.posterImg}><a href={movie.youtube_trailer_url} target="_blank"><img src={movie.poster_url} alt={movie.title} width="300px" /></a></div>
+                </div>
+                <div className={styles.detail_page}>
+                <div className={styles.plot_div}>
+                        <span><b>줄거리</b></span>
+                        <div>{movie.summary}</div>
+                 </div>
+                </div>
+                <div className={styles.detail_page}>
+                <div style={{float:"left"}}>
+                    <div className={styles.categoryTitle}>이런 영화들은 어떠신가요?</div>
+                    <Movies movies={similarMovies} />
+                </div>
             </div>
         </HeaderTemplate>
     )

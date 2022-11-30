@@ -9,6 +9,9 @@ import { getPurchaseMovieIdList } from "../Data/UserDBController";
 import { Movie } from "../Components/Movie";
 import { HeaderTemplate } from "../Components/Template";
 
+//Styles
+import styles from "../styles/List.module.css";
+
 export const MyMovies = () => {
     const {username} = useParams();
     const [movies, setMovies] = useState([]);
@@ -24,14 +27,16 @@ export const MyMovies = () => {
         getPurchaseMovies();
     }, [])
 
-    if(movies.length == 0) return <HeaderTemplate><div>Nothing in here</div></HeaderTemplate>;
+    if(movies.length == 0) return <HeaderTemplate><div className={styles.background}><h1 className={styles.topText}>Nothing in here</h1></div></HeaderTemplate>;
     if(movies)
     {
         return (
             <HeaderTemplate>
-                <div>
-                    <h1>My Movie List</h1>
-                    <div>
+                <div className={styles.background}>
+                    <div className={styles.topGroup}>
+                        <h1 className={styles.topText}>My Movie List</h1>
+                    </div>
+                    <div className={styles.grid}>
                         {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
                     </div>
                 </div>

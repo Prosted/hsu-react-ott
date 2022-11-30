@@ -7,12 +7,15 @@ import { login, checkUserDBExists, makeUserDB, isUserLoggedIn } from "../Data/Us
 //Component
 import { SimpleForm } from "../Components/SimpleForm";
 
+//styles
+import styles from "../styles/Login.module.css";
+
 export const Login = () => {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [errorPopup, setErrorPopup] = useState(false);
-    const errorMessage = "잘못된 아이디 또는 비밀번호입니다. 다시 확인해주세요.";
+    const errorMessage = "잘못된 아이디 또는 비밀번호입니다.";
     const buttonText = "Login";
 
     useEffect(()=>{
@@ -56,11 +59,11 @@ export const Login = () => {
     }
 
     return(
-        <div>
+        <div className={styles.background}>
             <SimpleForm handleId={handleId} handlePassword={handlePassword} handleSubmit={handleSubmit} id={id} password={password} buttonText={buttonText} errorPopup={errorPopup} errorMessage={errorMessage} />
-            <div>
-                <h3>First time visiting?</h3>
-                <div><Link to={"/join"}>Create Account</Link></div>
+            <div className={styles.linkGroup}>
+                <h3 className={styles.linkTitle}>First time visiting?</h3>
+                <div className={styles.linkContainer}><Link to={"/join"} className={styles.link}>Create Account</Link></div>
             </div>
         </div>
     )

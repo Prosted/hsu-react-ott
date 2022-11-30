@@ -1,0 +1,53 @@
+ body {
+    background-color: #000000;
+    color:#ffffff;
+}
+
+.detail_info {
+  width: 400px;
+  float: left;
+  padding: 10px;
+}
+
+.posterImg {
+  width: 700px;
+  float: left;
+  margin-left: 10px;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.detail_page {
+  width : 1000px;
+  padding: 10px;
+  top: 10px;
+  left: 50%;
+  margin : auto;
+  overflow: hidden;
+  display: flex;
+  padding-top: 20px;
+}
+
+.plot_div {
+  width: 1000px;
+  line-height: 200%;
+}
+
+.categoryTitle
+{
+    color:whitesmoke;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.icon
+{
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.icon:hover
+{
+  transform: scale(1.02);
+}

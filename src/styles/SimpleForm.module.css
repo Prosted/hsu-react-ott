@@ -1,0 +1,71 @@
+.form
+{
+    /* size & color */
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    border: 0.2rem solid tomato;
+    width: 30em;
+    height: 20em;
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input
+{
+    width: 70%;
+    height: 3rem;
+    border: none;
+    outline: none;
+    border-bottom: 0.15rem solid black;
+    margin: 0.7rem 0;
+    font-size : 1.3rem;
+    font-weight: bold;
+    background-color: whitesmoke;
+}
+
+.input:focus
+{
+    border-bottom: 0.15rem solid tomato;
+}
+
+.input::placeholder
+{
+    font-weight: bold;
+    font-size: 1.3rem;
+    opacity: 0.5;
+}
+
+.button
+{
+    width: 70%;
+    height: 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: tomato;
+    color:whitesmoke;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    /* flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover
+{
+    transform: scale(1.02);
+}
+
+
+.errorMessage
+{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color : black;
+}

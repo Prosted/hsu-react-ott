@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat&display=swap');
+
+*
+{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background
+{
+    /* size & background */
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/25/23/15/moon-1859616_960_720.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkGroup
+{
+    margin-top: 2rem;   
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkTitle
+{
+    width: 28rem;
+    height: 2em;
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 2rem;
+    /* flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkContainer
+{
+    width: 20rem;
+    height: 3rem;
+    background-color: tomato;
+    border-radius: 0.5rem;
+    /* flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkContainer:hover
+{
+    transform: scale(1.02);
+}
+
+.link
+{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: whitesmoke;
+}

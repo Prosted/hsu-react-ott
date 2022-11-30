@@ -9,6 +9,9 @@ import { HeaderTemplate } from "../Components/Template";
 import MovieData from "../Data/MovieData.json";
 import { getCurrentUser } from "../Data/UserData";
 
+//Styles
+import styles from "../styles/Home.module.css";
+
 export const Home = () => {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(false);
@@ -23,8 +26,8 @@ export const Home = () => {
     let filtered_horrors;
     let filtered_actions;
     let filtered_rating;
-    const genreRandom = 4;
-    const topRatingCount = 4;
+    const genreRandom = 5;
+    const topRatingCount = 5;
     
     //영화 필터링
     useEffect(()=>{
@@ -93,11 +96,11 @@ export const Home = () => {
     //로딩 중이면 
     if(!loading)
     {  
-        if(currentUser == null) return <div><h1>Loading...</h1></div>
+        if(currentUser == null) return <div className={styles.background}><h1 className={styles.loadingTitle}>Loading...</h1></div>
         else return (
             <HeaderTemplate>
-                <div>
-                    <h1>Loading...</h1>
+                <div className={styles.background}>
+                    <h1 className={styles.loadingTitle}>Loading...</h1>
                 </div>
             </HeaderTemplate>
         )
@@ -106,18 +109,28 @@ export const Home = () => {
     {
         return (
             <HeaderTemplate>
-                <div>
-                    <div></div>
+                <div className={styles.background}>
                     <div>
-                        <Movies movies={dramas}/>
-                         <h1>----------SF----------</h1>
-                        <Movies movies={SFs}/>
-                         <h1>----------horrors----------</h1>
-                        <Movies movies={horrors}/>
-                         <h1>----------actions----------</h1>
-                        <Movies movies={actions}/>
-                         <h1>----------rating----------</h1>
-                        <Movies movies={rating}/>
+                        <div className={styles.categoryBox}>
+                            <h1 className={styles.categoryTitle}>드라마</h1>
+                            <Movies movies={dramas}/>
+                        </div>
+                        <div className={styles.categoryBox}>
+                            <h1 className={styles.categoryTitle}>SF</h1>
+                            <Movies movies={SFs}/>
+                        </div>
+                        <div className={styles.categoryBox}>
+                            <h1 className={styles.categoryTitle}>공포</h1>
+                            <Movies movies={horrors}/>
+                        </div>
+                        <div className={styles.categoryBox}>
+                            <h1 className={styles.categoryTitle}>액션</h1>
+                            <Movies movies={actions}/>
+                        </div>
+                        <div className={styles.categoryBox}>
+                            <h1 className={styles.categoryTitle}>평점 높은 순</h1>
+                            <Movies movies={rating}/>
+                        </div>
                     </div>
                 </div>
             </HeaderTemplate>

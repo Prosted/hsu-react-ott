@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat&display=swap');
+
+*
+{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background
+{
+    /* size & background */
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://cdn.pixabay.com/photo/2020/04/08/16/32/keyboard-5017973_960_720.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoTitle
+{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 6rem;
+    letter-spacing: 0.3rem;
+    color : whitesmoke;
+    margin-bottom: 5rem;
+}
+
+.btnGroup
+{
+    /* size & color */
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    border: 0.2rem solid tomato;
+    width: 30em;
+    height: 20em;
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn
+{
+    background-color: tomato;
+    margin: 2rem 0;
+    width: 80%;
+    height: 4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover
+{
+    transform: scale(1.02);
+}
+
+.btnText
+{
+    text-decoration: none;
+    font-size: 2rem;
+    color : whitesmoke;
+    font-weight: bold;
+}
+
+

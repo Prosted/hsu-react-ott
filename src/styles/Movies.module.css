@@ -1,0 +1,11 @@
+.container
+{
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0;
+    padding : 1rem 0;
+    border: 0.2rem solid tomato;
+    border-radius: 0.7rem;
+}

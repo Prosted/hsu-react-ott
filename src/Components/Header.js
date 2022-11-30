@@ -7,17 +7,20 @@ import { getCurrentUser } from "../Data/UserData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
+//Styles
+import styles from "../styles/Header.module.css";
+
 export const Header = () => {
     const {id} = getCurrentUser();
     const navigate = useNavigate();
     return(
-        <div>
-            <div><Link to={"/"}>NETFLIX</Link></div>
-            <div><Link to={"/wishlist"}>Wish List</Link></div>
-            <div><Link to={"/cartlist"}>Cart List</Link></div>
-            <div><Link to={"/search"}><FontAwesomeIcon icon={faMagnifyingGlass} color={"black"} /></Link></div>
-            <div><Link to={`/${id}/movies`}>My Movies</Link></div>
-            <div><Link to={"/logout"}>Logout</Link></div>
+        <div className={styles.bar}>
+            <div className={`${styles.logo} ${styles.logo2}`}><Link className={styles.logo} to={"/"}>NETFLIX</Link></div>
+            <div className={styles.linkBox}><Link className={styles.link} to={"/wishlist"}>Wish List</Link></div>
+            <div className={styles.linkBox}><Link className={styles.link} to={"/cartlist"}>Cart List</Link></div>
+            <div className={styles.linkBox}><Link className={styles.link} to={"/search"}><FontAwesomeIcon icon={faMagnifyingGlass} /></Link></div>
+            <div className={styles.linkBox}><Link className={styles.link} to={`/${id}/movies`}>My Movies</Link></div>
+            <div className={styles.linkBox}><Link className={styles.link} to={"/logout"}>Logout</Link></div>
         </div>
     );
 }
